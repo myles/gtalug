@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load shorturl %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block extra_head %}
+	<link rel="shorturl" href="{% shorturl flatpage %}">
+	<link rel="canonical" href="{{ flatpage.get_absolute_url }}">
+{% endblock %}
+
+{% block page %}
+	<h2>{{ flatpage.title }}</h2>
+	
+	{{ flatpage.content }}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load shorturl %}
+
+{% block extra_head %}
+	<link rel="shorturl" href="{% shorturl flatpage %}">
+	<link rel="canonical" href="{{ flatpage.get_absolute_url }}">
+{% endblock %}
+
+{% block sidebar %}
+	<ul>
+		<li>
+			<a href="/about/">About</a>
+			<ul>
+				<li><a href="/about/by-law/">By-Law</a></li>
+				<li><a href="/about/manifesto/">Manifesto</a></li>
+			</ul>
+		</li>
+	</ul>
+{% endblock %}

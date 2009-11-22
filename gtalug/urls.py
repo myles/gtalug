@@ -10,7 +10,10 @@ urlpatterns = patterns('',
 	url(r'^$',
 		'django.views.generic.simple.direct_to_template',
 		{'template': 'index.html'},
+		'homepage',
 	),
+	
+	url(r'^meetings/', include('gtalug.apps.meetings.urls')),
 	
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),

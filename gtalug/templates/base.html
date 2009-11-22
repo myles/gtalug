@@ -15,28 +15,31 @@
 	</head>
 	<body id="www_gtalug_org {% block body_id %}{% endblock %}">
 		<div class="container">
-			<div id="header" class="span-24">
-				<img src="{{ MEDIA_URL }}img/logo-small.png" title="GTALUG - Greater Toronto Linux User Group" height="80">
+			<div id="header" class="span-18">
+				<img src="{{ MEDIA_URL }}img/logo-small.png" title="GTALUG - Greater Toronto Linux User Group">
 				<h1 id="greater_toronto_linux_user_group">Greater Toronto Linux User Group</h1>
 				<p>Committed to the free exchange of Linux-related information in the Greater Toronto area.</p>
+				
+				{% include "_tabs.html" %}
 			</div>
 			
-			<div class="span-24" id="page">
+			<div class="span-18" id="page">
 				{% block page %}
-					<div class="span-15 prepend-1 colborder" id="body">
+					<div class="span-10 prepend-1 colborder" id="body">
 						{% block body %}
 							{% block content_title %}{% endblock %}
 							{% block content %}{% endblock %}
 						{% endblock %}
 					</div>
-					<div class="span-7 last" id="sidebar">
+					<div class="span-6 last" id="sidebar">
 						{% block sidebar %}{% endblock %}
 					</div>
 				{% endblock %}
 			</div>
 			
-			<div class="span-24" id="footer">
-				<p>Create Commons License</p>
+			<div class="span-18" id="footer">
+				{% include "_tabs.html" %}
+				<p>Creative Commons Attribution 2.5 Canada License</p>
 			</div>
 		</div>
 		

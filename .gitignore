@@ -8,3 +8,5 @@ bin/
 include/
 lib/
 
+# django stuff
+*.db

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load meetings_tags %}
+
+{% block title %}Greater Toronto Area Linux User Group{% endblock %}
+
+{% block page %}
+	<div class="large_block span-18" id="block_upcoming_meeting">
+		<h2>Upcoming Meetings</h2>
+		<p>GTALUG meets on the second Tuesday of every month at 7:30 p.m.</p>
+		{% get_upcoming_meetings 1 as meeting %}
+		<h3><a href="{{ meeting.get_absolute_url }}">{{ meeting.topic }}</a></h3>
+		<p>{{ meeting.date|date:"jS F, Y" }} at {{ meeting.time|time:"f a" }}</p>
+		{{ meeting.tease|safe }}
+	</div>
+	
+	<div id="small_blocks">
+		<div class="small_block span-8 first colborder" id="block_events">
+			<h2>Events</h2>
+			<ul>
+				<li><a href="#">FUDCon</a> - 5 to 7 December, 2009</li>
+			</ul>
+		</div>
+
+		<div class="small_block span-7 last" id="block_blog">
+			<h2>Blog</h2>
+			<ul>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+			</ul>
+		</div>
+
+		<div class="small_block span-8 first colborder" id="block_mailing_list">
+			<h2>Mailing List</h2>
+			<ul>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+			</ul>
+		</div>
+
+		<div class="small_block span-7 last" id="block_planet">
+			<h2>Planet</h2>
+			<ul>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
