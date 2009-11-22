@@ -1,0 +1,10 @@
+# python stuff
+*.pyc
+*.pyo
+
+# virtualenv stuff
+.Python
+bin/
+include/
+lib/
+
