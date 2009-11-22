@@ -15,6 +15,8 @@ urlpatterns = patterns('',
 	
 	url(r'^meetings/', include('gtalug.apps.meetings.urls')),
 	
+	(r'^search/', include('haystack.urls')),
+	
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	

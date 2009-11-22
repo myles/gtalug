@@ -96,6 +96,7 @@ INSTALLED_APPS = (
 	
 	'shorturls',
 	'django_extensions',
+	'haystack',
 	
 	'gtalug.apps.meetings',
 )
@@ -105,6 +106,10 @@ SHORTEN_MODELS = {
 }
 
 SHORT_BASE_URL = SHORTEN_FULL_BASE_URL = 'http://gtalug.org/'
+
+HAYSTACK_SITECONF = 'gtalug.apps.search'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = os.path.join(ROOT_PATH, '../haystack/')
 
 try:
 	from settings_local import *

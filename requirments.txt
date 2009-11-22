@@ -1,8 +1,10 @@
 docutils
 vobject
+whoosh
 
 http://www.djangoproject.com/download/1.1.1/tarball/
 
 # Django third party apps
 django-shorturls
 django-extensions
+-e git+git://github.com/toastdriven/django-haystack.git#egg=django-haystack

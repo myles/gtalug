@@ -7,6 +7,8 @@
 bin/
 include/
 lib/
+src/
 
 # django stuff
 *.db
+haystack/

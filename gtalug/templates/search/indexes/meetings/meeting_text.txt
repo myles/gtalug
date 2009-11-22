@@ -1,0 +1,4 @@
+{{ object.topic }}
+{{ object.tease }}
+{{ object.body }}
+{{ object.presenter }}
