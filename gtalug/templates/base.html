@@ -16,8 +16,8 @@
 	<body id="www_gtalug_org {% block body_id %}{% endblock %}">
 		<div class="container">
 			<div id="header" class="span-18">
-				<img src="{{ MEDIA_URL }}img/logo-small.png" title="GTALUG - Greater Toronto Linux User Group">
-				<h1 id="greater_toronto_linux_user_group">Greater Toronto Linux User Group</h1>
+				<a href="{% url homepage %}"><img src="{{ MEDIA_URL }}img/logo-small.png" title="GTALUG - Greater Toronto Linux User Group"></a>
+				<h1 id="greater_toronto_linux_user_group"><a href="{% url homepage %}">Greater Toronto Linux User Group</a></h1>
 				<p>Committed to the free exchange of Linux-related information in the Greater Toronto area.</p>
 				
 				{% include "_tabs.html" %}

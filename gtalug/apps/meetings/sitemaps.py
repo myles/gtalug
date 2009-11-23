@@ -7,7 +7,7 @@ class MeetingSitemap(Sitemap):
 	priority = 0.5
 	
 	def items(self):
-		return Meeting.objects.all_not_tba()
+		return Meeting.objects.all()
 	
 	def lastmod(self, obj):
 		return obj.date_modified

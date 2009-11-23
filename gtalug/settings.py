@@ -93,12 +93,15 @@ INSTALLED_APPS = (
 	'django.contrib.admin',
 	'django.contrib.admindocs',
 	'django.contrib.flatpages',
+	'django.contrib.sitemaps',
 	
 	'shorturls',
 	'django_extensions',
 	'haystack',
 	
 	'gtalug.apps.meetings',
+	
+	'gtalug.apps.search',
 )
 
 SHORTEN_MODELS = {
