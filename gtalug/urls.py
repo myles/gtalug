@@ -4,9 +4,9 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 
-from gtalug.apps.meetings.feeds import MeetingFeed
+from gtalug.apps.meetings.feeds import RssMeetingFeed, AtomMeetingFeed
 
-from gtalug.apps.meetings.sitemaps import RssMeetingFeed, AtomMeetingFeed
+from gtalug.apps.meetings.sitemaps import MeetingSitemap
 
 admin.autodiscover()
 

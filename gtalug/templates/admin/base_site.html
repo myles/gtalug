@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'GTALUG site admin' %}{% endblock %}
+
+{% block extrahead %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/admin.css" type="text/css" media="screen, projection" charset="utf-8">
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="{{ MEDIA_URL }}img/favicon.ico"/>
+	<link rel="icon" type="image/png" href="{{ MEDIA_URL }}img/logo-16x16.png"/>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'GTALUG administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+

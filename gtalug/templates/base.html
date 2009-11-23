@@ -11,6 +11,12 @@
 		
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css" type="text/css" media="screen, projection" charset="utf-8">
 		
+		<link rel="alternate" type="application/atom+xml" href="{% url atom_feeds 'meetings' %}" title="Meetings Atom Feed">
+		<link rel="alternate" type="application/rss+xml" href="{% url rss_feeds 'meetings' %}" title="Meetings RSS 2.0 Feed">
+		
+		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="{{ MEDIA_URL }}img/favicon.ico">
+		<link rel="icon" type="image/png" href="{{ MEDIA_URL }}img/logo-16x16.png">
+		
 		{% block extra_head %}{% endblock %}
 	</head>
 	<body id="www_gtalug_org {% block body_id %}{% endblock %}">
