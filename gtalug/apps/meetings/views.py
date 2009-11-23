@@ -1,7 +1,4 @@
-import datetime
-import vobject
-
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -22,4 +19,5 @@ def detail(request, year, month, slug=None):
 		'meeting': meeting,
 	}
 	
-	return render_to_response('meetings/detail.html', context, context_instance=RequestContext(request))
+	return render_to_response('meetings/detail.html', context,
+		context_instance=RequestContext(request))

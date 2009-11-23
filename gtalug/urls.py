@@ -5,21 +5,26 @@ from django.contrib import admin
 from django.conf import settings
 
 from gtalug.apps.meetings.feeds import RssMeetingFeed, AtomMeetingFeed
+from gtalug.apps.blog.feeds import RssPostFeed, AtomPostFeed
 
 from gtalug.apps.meetings.sitemaps import MeetingSitemap
+from gtalug.apps.blog.sitemaps import PostSitemap
 
 admin.autodiscover()
 
 rss_feeds = {
 	'meetings': RssMeetingFeed,
+	'blog': RssPostFeed,
 }
 
 atom_feeds = {
 	'meetings': AtomMeetingFeed,
+	'blog': AtomPostFeed,
 }
 
 sitemaps = {
 	'meetings': MeetingSitemap,
+	'posts': PostSitemap,
 }
 
 urlpatterns = patterns('',
@@ -30,8 +35,9 @@ urlpatterns = patterns('',
 	),
 	
 	url(r'^meetings/', include('gtalug.apps.meetings.urls')),
+	url(r'^blog/', include('gtalug.apps.blog.urls')),
 	
-	(r'^search/', include('haystack.urls')),
+	url(r'^search/', include('haystack.urls')),
 	
 	url(r'^rss/(?P<url>.*)/$',
 		'django.contrib.syndication.views.feed',

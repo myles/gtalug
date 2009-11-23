@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load meetings_tags %}
+{% load meetings_tags blog_tags %}
 
 {% block title %}Greater Toronto Area Linux User Group{% endblock %}
 
@@ -23,12 +23,11 @@
 
 		<div class="small_block span-7 last" id="block_blog">
 			<h2>Blog</h2>
+			{% get_blog_posts_published 4 as blog_posts %}
 			<ul>
-				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-				<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+				{% for post in blog_posts %}
+					<li id="blog_post_{{ post.pk }}"><a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a> - {{ post.published|date:"jS F, Y" }}</li>
+				{% endfor %}
 			</ul>
 		</div>
 

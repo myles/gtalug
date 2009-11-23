@@ -100,7 +100,7 @@ INSTALLED_APPS = (
 	'haystack',
 	
 	'gtalug.apps.meetings',
-	
+	'gtalug.apps.blog',
 	'gtalug.apps.search',
 )
 
