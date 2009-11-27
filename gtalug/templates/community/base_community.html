@@ -6,15 +6,15 @@
 	<link rel="canonical" href="{{ flatpage.get_absolute_url }}">
 {% endblock %}
 
-{% block body_id %}about{% endblock %}
+{% block body_id %}community{% endblock %}
 
 {% block sidebar %}
 	<ul>
 		<li>
-			<a href="/about/">About</a>
+			<a href="/community/">Community</a>
 			<ul>
-				<li><a href="/about/by-law/">By-Law</a></li>
-				<li><a href="/about/manifesto/">Manifesto</a></li>
+				<li><a href="{# url planet_index #}">Planet</a></li>
+				<li><a href="{# url mailinglist_index #}">Mailing List</a></li>
 			</ul>
 		</li>
 	</ul>

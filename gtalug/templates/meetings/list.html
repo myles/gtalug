@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Meetings for {{ year }}{% endblock %}
+
+{% block page %}
+	<h2>Meetings for {{ year }}</h2>
+	
+	<div class="vcalendar" id="meeting_list">
+		{% for meeting in meetings %}
+			<div class="vevent">
+				<h3><a href="{{ meeting.get_absolute_url }}" class="dtstart" title="{{ meeting.date|date:"Y-m-d" }}T19:30:00-05:00">{{ meeting.date|date:"F" }}</a></h3>
+				<p><a href="{{ meeting.get_absolute_url }}" class="summary">{{ meeting.topic }}</a><br>{{ meeting.presenter }}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "community/base_community.html" %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		Community
+	</p>
+	
+	<h2>{{ flatpage.title }}</h2>
+{% endblock %}
+
+{% block content %}
+	{{ flatpage.content }}
+{% endblock %}

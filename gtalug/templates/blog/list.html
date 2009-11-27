@@ -1,0 +1,40 @@
+{% extends "blog/base_blog.html" %}
+{% load shorturl %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		Blog
+	</p>
+	
+	<h2>Blog</h2>
+{% endblock %}
+
+{% block content %}
+	<div class="hfeed">
+		{% for post in posts.object_list %}
+		<div class="hentry">
+			<h3><a href="{{ post.get_absolute_url }}">{{ post }}</a></h3>
+			<p class="meta">
+				<span class="fn">{{ post.author.get_full_name }}</span> on
+				<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date:"jS F, Y" }}</span>
+			</p>
+			{{ post.tease|safe }}
+		</div>
+		{% endfor %}
+	</div>
+	
+	<p class="pagnation">
+		{% if posts.has_previous %}
+			<a href="{% url blog_index %}?page={{ posts.previous_page_number }}">
+				&#x2190; Prev.</a>
+		{% endif %}
+		<span>page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+		{% if posts.has_next %}
+			<a href="{% url blog_index %}?page={{ posts.next_page_number }}">
+				Next &#x2192;</a>
+		{% endif %}
+	</p>
+{% endblock %}

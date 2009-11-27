@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+
+{% block body_id %}blog{% endblock %}
+
+{% block sidebar %}
+	<div class="block hfeed" id="block_recent_posts">
+		{% get_blog_posts_published 5 as posts %}
+		{% for post in posts %}
+		<div class="hentry">
+			<h3><a href="{{ post.get_absolute_url }}" class="entry-title" rel="bookmark">{{ post }}</a></h3>
+			<p class="meta hcard">
+				<span class="fn">{{ post.author.get_full_name }}</span> on
+				<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date:"jS F" }}</span>
+			</p>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

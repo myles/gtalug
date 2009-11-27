@@ -9,12 +9,12 @@
 {% endblock %}
 
 {% block content %}
-	<div class="event-list vcalendar">
-		<div class="event vevent">
-			<div class="event-date dtstart" title="{{ meeting.date|date:"Y-m-d" }}T19:30:00-05:00">
+	<div class="vcalendar">
+		<div class="vevent">
+			<div class="dtstart" title="{{ meeting.date|date:"Y-m-d" }}T19:30:00-05:00">
 				{{ meeting.date|date:"jS F, Y" }}
 			</div>
-			<h3 class="event-title summary">
+			<h3 class="summary">
 				{{ meeting.topic }}
 			</h3>
 			{% if meeting.body %}

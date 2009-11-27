@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<ShortName>GTALUG Search</ShortName>
+	<LongName>Greater Toronto Area Linux User Group Search</LongName>
+	<Tags>gtalug linux user group toronto gta</Tags>
+	<Contact>info@gtalug.org</Contact>
+	<!--<Url type="application/atom+xml"
+		template="{# url atom_feeds 'search' #}{searchTerms}"/>-->
+	<!--<Url type="application/atom+rss"
+		template="{# url rss_feeds 'search' #}{searchTerms}"/>-->
+	<Url type="text/html"
+		template="{% url haystack_search %}?q={searchTerms}"/>
+	<Image height="100" width="100" type="image/png">{{ MEDIA_URL }}img/logo-100x100.png</Image>
+	<Image height="16" width="16" type="image/vnd.microsoft.icon">{{ MEDIA_URL }}img/favico.ico</Image>
+	<Query role="example" searchTerms="Linux"/>
+	<Developer>GTALUG Development Team</Developer>
+	<Attribution>
+		Creative Commons Attribution-Noncommercial-Share Alike 2.5 Canada License
+	</Attribution>
+	<SyndicationRight>open</SyndicationRight>
+	<AdultContent>false</AdultContent>
+	<Language>en-ca</Language>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

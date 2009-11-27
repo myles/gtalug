@@ -8,7 +8,7 @@ class BlogPostManager(Manager):
 	def published(self):
 		"""Published blog posts.
 		"""
-		return self.get_query_set().filter(published__gte=datetime.now()).order_by('-published')
+		return self.get_query_set().filter(published__lte=datetime.now()).order_by('-published')
 	
 	def search(self, search_terms):
 		"""Simple search.

@@ -1,0 +1,35 @@
+{% extends "blog/base_blog.html" %}
+{% load shorturl %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block extra_head %}
+	<link rel="canonical" href="{{ post.get_absolute_url }}">
+	<link rev="shorturl" href="{% shorturl post %}">
+{% endblock %}
+
+{% block page_class %}hentry{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="{% url blog_index %}">Blog</a> &#x2192;
+		{{ post.title }}
+	</p>
+	
+	<h2 class="entry-title">{{ post.title }}</h2>
+	<p class="meta vcard">
+		<span class="fn">{{ post.author.get_full_name }}</span> on
+		<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date:"jS F, Y" }}</span>
+	</p>
+{% endblock %}
+
+{% block content %}
+	<div class="entry-content">
+		{% if post.body %}
+			{{ post.body|safe }}
+		{% else %}
+			{{ post.tease|safe }}
+		{% endif %}
+	</div>
+{% endblock %}

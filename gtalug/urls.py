@@ -30,7 +30,7 @@ sitemaps = {
 urlpatterns = patterns('',
 	url(r'^$',
 		'django.views.generic.simple.direct_to_template',
-		{'template': 'index.html'},
+		{'template': 'home/index.html'},
 		'homepage',
 	),
 	
