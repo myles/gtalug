@@ -105,7 +105,9 @@ INSTALLED_APPS = (
 )
 
 SHORTEN_MODELS = {
-	'P': 'flatpages.flatpage'
+	'P': 'flatpages.flatpage',
+	'B': 'blog.post',
+	'M': 'meetings.meeting',
 }
 
 SHORT_BASE_URL = SHORTEN_FULL_BASE_URL = 'http://gtalug.org/'

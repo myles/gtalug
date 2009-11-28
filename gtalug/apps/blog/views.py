@@ -7,7 +7,7 @@ from gtalug.apps.blog.models import Post
 
 def index(request, page=None):
 	post_list = Post.objects.published()
-	paginator = Paginator(post_list, 2)
+	paginator = Paginator(post_list, 5)
 	
 	if not page:
 		try:

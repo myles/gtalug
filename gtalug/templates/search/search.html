@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 
+{% block title %}Search{% if query %}ing for &ldquo;{{ query }}&rdquo;.{% endif %}{% endblock %}
+
 {% block page %}
-	<h2>Search</h2>
+	<h2>Search{% if query %}ing for &ldquo;{{ query }}&rdquo;.{% endif %}</h2>
 	
-	<form action="." method="get" accept-charset="utf-8">
-		<p>{{ form.q }} <input type="submit" value="Search"></p>
+	<form action="." method="get" accept-charset="utf-8" class="page_search_form">
+		<p>{{ form.q }}</p>
+		{{ form.models }}
+		<p><input type="submit" value="Search"></p>
 	</form>
 	
 	{% if page.object_list %}
 		{% for result in page.object_list %}
-			<p><a href="{{ result.object.get_absolute_url }}">
-				{{ result.object }}</a></p>
+			<p><strong><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a></strong> {% if page.user %}{{ page.user.get_full_name }}{% endif %} {% if page.date %}{{ page.date|date:"jS F, Y" }}{% endif %}</p>
 		{% empty %}
 			<p>No results found.</p>
 		{% endfor %}

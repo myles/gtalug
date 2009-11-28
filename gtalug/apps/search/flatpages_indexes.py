@@ -7,7 +7,8 @@ from django.contrib.flatpages.models import FlatPage
 class FlatPageIndex(indexes.SearchIndex):
 	text = indexes.CharField(document=True, use_template=True)
 	title = indexes.CharField(model_attr='title')
-	
+	content = indexes.CharField(model_attr='content')
+		
 	def get_queryset(self):
 		_site = Site.objects.get_current()
 		return FlatPage.objects.filter(sites__in=[_site], registration_required=False)

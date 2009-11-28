@@ -28,7 +28,7 @@ class MeetingManager(Manager):
 	def all_not_tba(self):
 		"""All meetings that are not to be announced.
 		"""
-		return self.get_query_set().filter(tba__isnull=True).order_by('date')
+		return self.get_query_set().filter(tba__isnull=False).order_by('date')
 	
 	def search(self, search_terms):
 		"""Simple search.

@@ -33,3 +33,19 @@ class Post(models.Model):
 			'pk': self.pk,
 			'slug': self.slug
 		})
+	
+	@property
+	def get_next_post(self):
+		try:
+			return Post.objects.filter(
+				published__gt=self.published).order_by('published')[0]
+		except IndexError:
+			return None
+	
+	@property
+	def get_prev_post(self):
+		try:
+			return Post.objects.filter(
+				published__lt=self.published).order_by('-published')[0]
+		except IndexError:
+			return None

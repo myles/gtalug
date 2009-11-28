@@ -1,5 +1,4 @@
 {% extends "blog/base_blog.html" %}
-{% load shorturl %}
 
 {% block title %}Blog{% endblock %}
 
@@ -10,6 +9,16 @@
 	</p>
 	
 	<h2>Blog</h2>
+{% endblock %}
+
+{% block extra_head %}
+	<link rel="home" title="Blog home" href="{% url blog_index %}">
+	{% if posts.has_previous %}
+		<link rel="prev" title="Previous page ({{ posts.previous_page_number }})" href="{% url blog_index %}?page={{ posts.previous_page_number }}">
+	{% endif %}
+	{% if posts.has_next %}
+	<link rel="next" title="Next page ({{ posts.previous_page_number }})" href="{% url blog_index %}?page={{ posts.previous_page_number }}">
+	{% endif %}
 {% endblock %}
 
 {% block content %}

@@ -6,6 +6,13 @@
 {% block extra_head %}
 	<link rel="canonical" href="{{ post.get_absolute_url }}">
 	<link rev="shorturl" href="{% shorturl post %}">
+	<link rel="home" title="Blog home" href="{% url blog_index %}">
+	{% if post.get_prev_post %}
+		<link rel="prev" title="{{ post.get_prev_post }}" href="{{ post.get_prev_post.get_absolute_url }}">
+	{% endif %}
+	{% if post.get_next_post %}
+	<link rel="next" title="{{ post.get_next_post }}" href="{{ post.get_next_post.get_absolute_url }}">
+	{% endif %}
 {% endblock %}
 
 {% block page_class %}hentry{% endblock %}

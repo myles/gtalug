@@ -1,8 +1,8 @@
 from re import escape
 
-from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
+from django.conf.urls.defaults import *
 
 from gtalug.apps.meetings.feeds import RssMeetingFeed, AtomMeetingFeed
 from gtalug.apps.blog.feeds import RssPostFeed, AtomPostFeed
@@ -37,7 +37,12 @@ urlpatterns = patterns('',
 	url(r'^meetings/', include('gtalug.apps.meetings.urls')),
 	url(r'^blog/', include('gtalug.apps.blog.urls')),
 	
-	url(r'^search/', include('haystack.urls')),
+	url(r'^search/', include('gtalug.apps.search.urls')),
+	
+	url(r'^(?P<prefix>%s)(?P<tiny>\w+)$' % '|'.join(settings.SHORTEN_MODELS.keys()),
+		view  = 'shorturls.views.redirect'),
+	url(r'^(?P<prefix>%s)(?P<tiny>\w+)/$' % '|'.join(settings.SHORTEN_MODELS.keys()),
+		view  = 'shorturls.views.redirect'),
 	
 	url(r'^rss/(?P<url>.*)/$',
 		'django.contrib.syndication.views.feed',

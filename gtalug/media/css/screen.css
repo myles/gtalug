@@ -19,9 +19,10 @@ div#header a img { border: none; }
 div#header h1 { margin-bottom: 0; background-color: #000; color: #fc0; font-family: "Courier New", Courier, mono; font-size: 2.5em; }
 div#header h1 a { text-decoration: none; color: #fc0; }
 div#header p { margin: 0; background-color: #000; color: #fc0; }
-div#header .tabs { margin: 0; background-color: #fc0; }
+div#header .tabs { margin: 0; background-color: #fc0; -webkit-border-bottom-right-radius: 1em; -webkit-border-bottom-left-radius: 1em; }
 div#header .tabs li { margin-right: 1em; }
-div#header .tabs a { margin-top: 2.4em; color: #fc0; text-decoration: none; background-color: #000; padding: .5em 1em 0em 1em; }
+div#header .tabs a { margin-top: 2.4em; color: #fc0; text-decoration: none; background-color: #000; padding: .5em 1em 0em 1em; -webkit-border-top-right-radius: .5em; -webkit-border-top-left-radius: .5em; border: 1px solid #000; border-bottom: none; }
+div#header .tabs a:hover { /* TODO */ }
 
 /* Page */
 div#page { padding-top: 1em; }
@@ -61,3 +62,10 @@ div#meeting_list h3 { margin: 0; background-color: #000; padding: .2em; }
 div#meeting_list h3 a { color: #FFF; text-decoration: none; }
 div#meeting_list div p { margin: 0; }
 div#meeting_list div p a { text-decoration: none; font-weight: bold; color: #000; }
+
+/* Search Page */
+form.page_search_form { margin: 0 auto; width: 300px; text-align: center; }
+form.page_search_form p { margin: 0; }
+form.page_search_form input#id_q { width: 100%; }
+form.page_search_form ul { list-style: none; margin: 0; }
+form.page_search_form ul li { display: inline-block; }

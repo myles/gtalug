@@ -4,10 +4,10 @@
 	<LongName>Greater Toronto Area Linux User Group Search</LongName>
 	<Tags>gtalug linux user group toronto gta</Tags>
 	<Contact>info@gtalug.org</Contact>
-	<!--<Url type="application/atom+xml"
-		template="{# url atom_feeds 'search' #}{searchTerms}"/>-->
-	<!--<Url type="application/atom+rss"
-		template="{# url rss_feeds 'search' #}{searchTerms}"/>-->
+	<Url type="application/atom+xml"
+		template="{% url haystack_search %}?q={searchTerms}&amp;output=atom"/>
+	<Url type="application/atom+rss"
+		template="{% url haystack_search %}?q={searchTerms}&amp;output=rss"/>
 	<Url type="text/html"
 		template="{% url haystack_search %}?q={searchTerms}"/>
 	<Image height="100" width="100" type="image/png">{{ MEDIA_URL }}img/logo-100x100.png</Image>
