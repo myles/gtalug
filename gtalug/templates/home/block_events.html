@@ -1,0 +1,13 @@
+{% load events_tags %}
+
+<h2>Events</h2>
+{% get_events_published 4 as object_list %}
+<ul>
+	{% for object in object_list %}
+		<li>
+			<a href="{{ object.get_absolute_url }}">{{ object.title }}</a> -
+			{{ object.date|date:"jS F, Y" }}
+			{% if object.time %}at {{ object.time }}{% endif %}
+		</li>
+	{% endfor %}
+</ul>

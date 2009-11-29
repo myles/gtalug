@@ -1,5 +1,5 @@
 {% extends "blog/base_blog.html" %}
-{% load shorturl %}
+{% load shorturl comments %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -38,5 +38,18 @@
 		{% else %}
 			{{ post.tease|safe }}
 		{% endif %}
+	</div>
+	
+	<div class="comments">
+		{% get_comment_form for post as comment_form %}
+		<form action="{% comment_form_target %}" method="post" accept-charset="utf-8">
+			{{ comment_form.as_p }}
+			<p><input type="submit" name="preview" class="sumbit-post" value="Preview"></p>
+		</form>
+		
+		{% get_comment_list for post as comments %}
+		{% for comment in comments %}
+			
+		{% endfor %}
 	</div>
 {% endblock %}

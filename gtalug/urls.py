@@ -12,6 +12,8 @@ from gtalug.apps.blog.sitemaps import PostSitemap
 
 admin.autodiscover()
 
+handler404 = 'perfect404.views.page_not_found'
+
 rss_feeds = {
 	'meetings': RssMeetingFeed,
 	'blog': RssPostFeed,
@@ -59,6 +61,7 @@ urlpatterns = patterns('',
 		{ 'sitemaps': sitemaps }
 	),
 	
+	url(r'^comments/', include('django.contrib.comments.urls')),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	

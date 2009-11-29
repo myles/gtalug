@@ -94,13 +94,17 @@ INSTALLED_APPS = (
 	'django.contrib.admindocs',
 	'django.contrib.flatpages',
 	'django.contrib.sitemaps',
+	'django.contrib.comments',
 	
 	'shorturls',
 	'django_extensions',
 	'haystack',
-	
+	'south',
+	'perfect404',
+		
 	'gtalug.apps.meetings',
 	'gtalug.apps.blog',
+	'gtalug.apps.events',
 	'gtalug.apps.search',
 )
 
