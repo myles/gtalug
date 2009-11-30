@@ -120,7 +120,4 @@ HAYSTACK_SITECONF = 'gtalug.apps.search'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = os.path.join(ROOT_PATH, '../haystack/')
 
-try:
-	from settings_local import *
-except ImportError:
-	pass
+from gtalug.settings_local import *
