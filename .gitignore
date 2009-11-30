@@ -13,3 +13,4 @@ pip-log.txt
 # django stuff
 *.db
 haystack/
+settings_local.py
