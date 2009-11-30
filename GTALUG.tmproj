@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>documents</key>
+	<array>
+		<dict>
+			<key>expanded</key>
+			<true/>
+			<key>name</key>
+			<string>gtalug</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>gtalug</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>LICENSE</string>
+			<key>lastUsed</key>
+			<date>2009-11-29T04:33:23Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>manage.py</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>README</string>
+			<key>lastUsed</key>
+			<date>2009-11-23T04:16:29Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>requirments.txt</string>
+			<key>lastUsed</key>
+			<date>2009-11-29T04:32:55Z</date>
+		</dict>
+	</array>
+	<key>fileHierarchyDrawerWidth</key>
+	<integer>220</integer>
+	<key>metaData</key>
+	<dict/>
+	<key>showFileHierarchyDrawer</key>
+	<true/>
+	<key>windowFrame</key>
+	<string>{{445, 76}, {736, 802}}</string>
+</dict>
+</plist>
