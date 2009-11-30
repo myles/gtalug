@@ -85,6 +85,20 @@ TEMPLATE_DIRS = (
 	os.path.join(ROOT_PATH, 'templates'),
 )
 
+SHORTEN_MODELS = {
+	'P': 'flatpages.flatpage',
+	'B': 'blog.post',
+	'M': 'meetings.meeting',
+}
+
+SHORT_BASE_URL = SHORTEN_FULL_BASE_URL = 'http://gtalug.org/'
+
+HAYSTACK_SITECONF = 'gtalug.apps.search'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = os.path.join(ROOT_PATH, '../haystack/')
+
+from gtalug.settings_local import *
+
 INSTALLED_APPS = (
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -107,17 +121,3 @@ INSTALLED_APPS = (
 	'gtalug.apps.events',
 	'gtalug.apps.search',
 )
-
-SHORTEN_MODELS = {
-	'P': 'flatpages.flatpage',
-	'B': 'blog.post',
-	'M': 'meetings.meeting',
-}
-
-SHORT_BASE_URL = SHORTEN_FULL_BASE_URL = 'http://gtalug.org/'
-
-HAYSTACK_SITECONF = 'gtalug.apps.search'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH = os.path.join(ROOT_PATH, '../haystack/')
-
-from gtalug.settings_local import *
