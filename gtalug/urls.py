@@ -38,14 +38,17 @@ urlpatterns = patterns('',
 	
 	url(r'^meetings/', include('gtalug.apps.meetings.urls')),
 	url(r'^blog/', include('gtalug.apps.blog.urls')),
+	url(r'^planet/', include('gtalug.apps.planet.urls')),
 	
 	url(r'^search/', include('gtalug.apps.search.urls')),
 	
+	# ShortURLs
 	url(r'^(?P<prefix>%s)(?P<tiny>\w+)$' % '|'.join(settings.SHORTEN_MODELS.keys()),
 		view  = 'shorturls.views.redirect'),
 	url(r'^(?P<prefix>%s)(?P<tiny>\w+)/$' % '|'.join(settings.SHORTEN_MODELS.keys()),
 		view  = 'shorturls.views.redirect'),
 	
+	# Syndication
 	url(r'^rss/(?P<url>.*)/$',
 		'django.contrib.syndication.views.feed',
 		{ 'feed_dict': rss_feeds },
@@ -56,15 +59,21 @@ urlpatterns = patterns('',
 		{ 'feed_dict': atom_feeds },
 		name = 'atom_feeds'
 	),
+	
+	# Sitemap XML
 	url(r'^sitemap.xml$',
 		'django.contrib.sitemaps.views.sitemap',
 		{ 'sitemaps': sitemaps }
 	),
 	
+	# Django Stuff.
 	url(r'^comments/', include('django.contrib.comments.urls')),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
-	
-	url(r'^%s/(.*)$' % escape(settings.MEDIA_URL.strip('/')),
-		'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT }),
 )
+
+if settings.DEBUG:
+	urlpatterns += patterns('',
+		url(r'^%s/(.*)$' % escape(settings.MEDIA_URL.strip('/')),
+			'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT }),
+	)

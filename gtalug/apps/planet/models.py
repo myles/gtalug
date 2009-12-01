@@ -5,7 +5,7 @@ class Feed(models.Model):
 	feed_url = models.URLField('feed url', unique=True)
 	
 	name = models.CharField('name', max_length=100)
-	shortname = models.CharField('shortname', max_length=25)
+	slug = models.SlugField('slug', max_length=25)
 	is_active = models.BooleanField('is active', default=True,
 		help_text='If disabled, this feed will not be further updated.')
 	user = models.ForeignKey(User, blank=True, null=True)
@@ -15,9 +15,9 @@ class Feed(models.Model):
 	link = models.URLField('link', blank=True)
 	
 	# http://feedparser.org/docs/http-etag.html
-	etag = models.CharField(_('etag'), max_length=50, blank=True)
-	last_modified = models.DateTimeField(_('last modified'), null=True, blank=True)
-	last_checked = models.DateTimeField(_('last checked'), null=True, blank=True)
+	etag = models.CharField('etag', max_length=50, blank=True)
+	last_modified = models.DateTimeField('last modified', null=True, blank=True)
+	last_checked = models.DateTimeField('last checked', null=True, blank=True)
 	
 	date_added = models.DateTimeField('date added', auto_now_add=True)
 	date_modified = models.DateTimeField('date modified', auto_now=True)
@@ -31,8 +31,11 @@ class Feed(models.Model):
 	def __unicode__(self):
 		return u"%s (%s)" % (self.name, self.feed_url)
 	
+	@models.permalink
 	def get_absolute_url(self):
-		return self.link
+		return ('planet_feed_detail', None, {
+			'slug': self.slug,
+		})
 
 class Post(models.Model):
 	feed = models.ForeignKey(Feed, verbose_name='feed')
@@ -52,11 +55,15 @@ class Post(models.Model):
 		db_table = 'planet_posts'
 		verbose_name = 'post'
 		verbose_name_plural = 'posts'
-		ordering = ('-date_modified')
+		ordering = ('-date_modified',)
 		unique_together = (('feed', 'guid'),)
 	
 	def __unicode__(self):
 		return self.title
 	
+	@models.permalink
 	def get_absolute_url(self):
-		return self.link
+		return ('planet_post_detail', None, {
+			'feed': self.feed.slug,
+			'pk': self.pk
+		})

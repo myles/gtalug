@@ -119,5 +119,7 @@ INSTALLED_APPS = (
 	'gtalug.apps.meetings',
 	'gtalug.apps.blog',
 	'gtalug.apps.events',
+	'gtalug.apps.planet',
 	'gtalug.apps.search',
+	'gtalug.apps.utils',
 )

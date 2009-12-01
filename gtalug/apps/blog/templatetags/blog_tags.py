@@ -25,7 +25,7 @@ class BlogPostsPublished(template.Node):
 
 @register.tag
 def get_blog_posts_published(parser, token):
-	"""Gets the upcoming meetings.
+	"""Gets the published posts.
 	
 	Syntax::
 		

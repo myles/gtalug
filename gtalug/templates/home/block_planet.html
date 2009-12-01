@@ -1,8 +1,9 @@
+{% load planet_tags %}
+
 <h2>Planet</h2>
+{% get_planet_posts 4 as posts %}
 <ul>
-	<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-	<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-	<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-	<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
-	<li><a href="#">Lorem Ipsum</a> - 21 November, 2009 8:15pm</li>
+{% for post in posts %}
+	<li><strong><a href="{{ post.feed.link }}">{{ post.feed.name }}</a></strong> - <a href="{{ post.link }}">{{ post.title }}</a></li>
+{% endfor %}
 </ul>

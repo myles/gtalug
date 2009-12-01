@@ -1,11 +1,7 @@
 /* @override http://127.0.0.1:8000/media/css/admin.css */
 
-/* @group Header */
-
 div#header { background-color: #fc0; border-bottom: 2px solid #000; }
 div#header h1 { color: #000; font-family: "Courier New", Courier, mono; }
 div#header div#user-tools { color: #323232; }
 div#header div#user-tools a { color: #000; }
-
-/* @end */
 

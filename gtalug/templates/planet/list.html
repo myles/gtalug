@@ -1,0 +1,49 @@
+{% extends "planet/base_planet.html" %}
+
+{% block title %}Planet{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		Planet
+	</p>
+	
+	<h2>Planet</h2>
+{% endblock %}
+
+{% block extra_head %}
+	<link rel="home" title="Planet home" href="{% url planet_index %}">
+	{% if posts.has_previous %}
+		<link rel="prev" title="Previous page ({{ posts.previous_page_number }})" href="{% url blog_index %}?page={{ posts.previous_page_number }}">
+	{% endif %}
+	{% if posts.has_next %}
+	<link rel="next" title="Next page ({{ posts.previous_page_number }})" href="{% url blog_index %}?page={{ posts.previous_page_number }}">
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<div class="hfeed">
+		{% for post in posts.object_list %}
+		<div class="hentry">
+			<h3><a href="{{ post.link }}">{{ post }}</a> <a href="{{ post.get_absolute_url }}">#</a></h3>
+			<p class="meta">
+				<span class="fn">{{ post.author }}</span> on
+				<span class="published" title="{{ post.date_modified|date:"Y-m-d" }}">{{ post.date_modified|date:"jS F, Y" }}</span>
+			</p>
+			{{ post.content|safe|truncatewords_html:100|linebreaks }}
+		</div>
+		{% endfor %}
+	</div>
+	
+	<p class="pagnation">
+		{% if posts.has_previous %}
+			<a href="{% url planet_index %}?page={{ posts.previous_page_number }}">
+				&#x2190; Prev.</a>
+		{% endif %}
+		<span>page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+		{% if posts.has_next %}
+			<a href="{% url planet_index %}?page={{ posts.next_page_number }}">
+				Next &#x2192;</a>
+		{% endif %}
+	</p>
+{% endblock %}

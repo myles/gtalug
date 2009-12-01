@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load shorturl %}
+{% load shorturl gtalug_tags %}
 
 {% block title %}{{ meeting.topic }}{% endblock %}
 
@@ -12,7 +12,7 @@
 	<div class="vcalendar">
 		<div class="vevent">
 			<div class="dtstart" title="{{ meeting.date|date:"Y-m-d" }}T19:30:00-05:00">
-				{{ meeting.date|date:"jS F, Y" }}
+				{{ meeting.date|date:"jS F, Y" }} at {{ meeting.time|time:"f a" }}
 			</div>
 			<h3 class="summary">
 				{{ meeting.topic }}
