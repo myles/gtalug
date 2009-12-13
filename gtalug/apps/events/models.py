@@ -30,7 +30,7 @@ class Event(models.Model):
 	
 	@models.permalink
 	def get_absolute_url(self):
-		return ('events_event_detail', None, {
+		return ('events_detail', None, {
 			'slug': self.slug,
 			'year': self.date.year,
 			'month': self.date.strftime('%m')

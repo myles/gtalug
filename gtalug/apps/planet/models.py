@@ -15,7 +15,7 @@ class Feed(models.Model):
 	link = models.URLField('link', blank=True)
 	
 	# http://feedparser.org/docs/http-etag.html
-	etag = models.CharField('etag', max_length=50, blank=True)
+	etag = models.CharField('etag', max_length=50, null=True, blank=True)
 	last_modified = models.DateTimeField('last modified', null=True, blank=True)
 	last_checked = models.DateTimeField('last checked', null=True, blank=True)
 	

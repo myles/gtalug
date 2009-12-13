@@ -15,6 +15,14 @@
 			<string>gtalug</string>
 		</dict>
 		<dict>
+			<key>name</key>
+			<string>fixtures</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>fixtures</string>
+		</dict>
+		<dict>
 			<key>filename</key>
 			<string>LICENSE</string>
 			<key>lastUsed</key>
@@ -34,7 +42,7 @@
 			<key>filename</key>
 			<string>requirments.txt</string>
 			<key>lastUsed</key>
-			<date>2009-11-29T04:32:55Z</date>
+			<date>2009-12-01T19:36:05Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -44,6 +52,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{445, 76}, {736, 802}}</string>
+	<string>{{399, 76}, {736, 802}}</string>
 </dict>
 </plist>

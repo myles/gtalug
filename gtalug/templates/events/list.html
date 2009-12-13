@@ -1,0 +1,28 @@
+{% extends "events/base_events.html" %}
+
+{% block title %}Events for {{ month }}-{{ year }}{% endblock %}
+
+{% block extra_body %}
+	<script type="text/javascript" charset="utf-8" src="{{ MEDIA_URL }}js/hcalendar.js"></script>
+	<script type="text/javascript" charset="utf-8" src="{{ MEDIA_URL }}js/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		jQuery(document).ready(function() {
+			jQuery(".hcalendar").hide();
+		});
+	</script>
+{% endblock %}
+
+{% block page %}
+	<h2>Events for {{ month }}-{{ year }}</h2>
+	
+	<ul class="hcalendar">
+	{% for event in events %}
+		<li class="vevent">
+			<a href="{{ event.get_absolute_url }}" class="summary">{{ event.title }}</a>
+			<addr class="dtstart">{{ event.date|date:"Ymd" }}{% if event.time %}T{{ event.time }}{% endif %}</addr>
+		</li>
+	{% endfor %}
+	</ul>
+	
+	<div id="jhCalendar"></div>
+{% endblock %}
