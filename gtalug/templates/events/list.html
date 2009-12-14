@@ -13,9 +13,17 @@
 {% endblock %}
 
 {% block page %}
-	<h2>Events for {{ month }}-{{ year }}</h2>
+	<h2>Events for {{ date|date:"F Y" }}</h2>
 	
-	<ul class="hcalendar">
+	<p class="navigation"><a href="{% url events_list previous_month|date:"Y" previous_month|date:"m" %}">&#x2190; {{ previous_month|date:"F Y" }}</a> - <a href="{% url events_list next_month|date:"Y" next_month|date:"m" %}">{{ next_month|date:"F Y" }} &#x2192;</a></p>
+	
+	<ul class="vcalendar">
+	{% if meeting %}
+		<li class="vevent">
+			<a href="{{ meeting.get_absolute_url }}" class="summary">GTALUG Meeting</a>
+			<addr class="dtstart">{{ meeting.date|date:"Ymd" }}{{ meeting.time }}</addr>
+		</li>
+	{% endif %}
 	{% for event in events %}
 		<li class="vevent">
 			<a href="{{ event.get_absolute_url }}" class="summary">{{ event.title }}</a>

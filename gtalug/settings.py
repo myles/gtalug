@@ -89,6 +89,7 @@ SHORTEN_MODELS = {
 	'P': 'flatpages.flatpage',
 	'B': 'blog.post',
 	'M': 'meetings.meeting',
+	'E': 'events.event',
 }
 
 SHORT_BASE_URL = SHORTEN_FULL_BASE_URL = 'http://gtalug.org/'
@@ -115,6 +116,7 @@ INSTALLED_APPS = (
 	'haystack',
 	'south',
 	'perfect404',
+	'piston',
 		
 	'gtalug.apps.meetings',
 	'gtalug.apps.blog',
@@ -122,4 +124,5 @@ INSTALLED_APPS = (
 	'gtalug.apps.planet',
 	'gtalug.apps.search',
 	'gtalug.apps.utils',
+	'gtalug.apps.api',
 )

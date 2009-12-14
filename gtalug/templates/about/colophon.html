@@ -1,0 +1,17 @@
+{% extends "about/base_about.html" %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="/about/">About</a> &#x2192;
+		Colophon
+	</p>
+	
+	<h2>{{ flatpage.title }}</h2>
+{% endblock %}
+
+{% block content %}
+	{{ flatpage.content }}
+{% endblock %}

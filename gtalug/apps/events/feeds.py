@@ -31,6 +31,6 @@ class RssEventFeed(Feed):
 	def item_pubdate(self, item):
 		return item.date
 
-class AtomPostFeed(RssEventFeed):
+class AtomEventFeed(RssEventFeed):
 	feed_type = Atom1Feed
-	subtitle = RssPostFeed.description
+	subtitle = RssEventFeed.description

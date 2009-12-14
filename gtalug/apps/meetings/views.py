@@ -1,8 +1,8 @@
 import datetime
 
-from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.http import Http404, HttpResponseRedirect
 
 from gtalug.apps.meetings.models import Meeting
 
@@ -12,7 +12,7 @@ def list(request, year=None):
 	if not year:
 		year = datetime.datetime.now().year
 	
-	meetings = Meeting.objects.filter(date__year=year)
+	meetings = Meeting.objects.all_not_tba(date__year=year)
 	
 	context = {
 		'meetings': meetings,
@@ -21,6 +21,12 @@ def list(request, year=None):
 	
 	return render_to_response('meetings/list.html', context,
 		context_instance=RequestContext(request))
+
+def next(request):
+	"""Redirect to the next meeting.
+	"""
+	meeting = Meeting.objects.upcoming()[0]
+	return HttpResponseRedirect(meeting.get_absolute_url())
 
 def detail(request, year, month, slug=None):
 	"""Meeting detail page.

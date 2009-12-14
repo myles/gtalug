@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load shorturl gtalug_tags %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block extra_head %}
+	<link rel="canonical" href="{{ event.get_absolute_url }}">
+	<link rev="shorturl" href="{% shorturl event %}">
+{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="{% url events_index %}">Events</a> &#x2192;
+		<a href="{% url events_list event.date|date:"Y" event.date|date:"m" %}">{{ event.date|date:"F Y" }}</a> &#x2192;
+		{{ event.title }}
+	</p>
+{% endblock %}
+
+{% block content %}
+	<div class="vcalendar">
+		<div class="vevent">
+			<div class="dtstart" title="{{ event.date|date:"Y-m-d" }}T{{ event.time }}-05:00">
+				{{ event.date|date:"jS F, Y" }}{% if event.time %} at {{ event.time|time:"f a" }}{% endif %}
+			</div>
+			<h3 class="summary">
+				{{ event.title }}
+			</h3>
+			{% if meeting.body %}
+				<div class="event-summary">
+					{{ event.body|safe }}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

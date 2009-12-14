@@ -11,3 +11,5 @@ django-extensions
 -e git+git://github.com/svetlyak40wt/django-perfect404.git#egg=Django-Perfect404
 -e git+git://github.com/leah/django-elsewhere.git#egg=Django-Elsewhere
 South
+http://bitbucket.org/jespern/django-piston/downloads/django-piston-0.2.2.tar.gz
+

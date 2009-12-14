@@ -8,6 +8,14 @@
 	<link rev="shorturl" href="{% shorturl meeting %}">
 {% endblock %}
 
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="{% url meetings_index %}">Meetings</a> &#x2192;
+		{{ meeting.topic }}
+	</p>
+{% endblock %}
+
 {% block content %}
 	<div class="vcalendar">
 		<div class="vevent">

@@ -5,9 +5,11 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 
 from gtalug.apps.meetings.feeds import RssMeetingFeed, AtomMeetingFeed
+from gtalug.apps.events.feeds import RssEventFeed, AtomEventFeed
 from gtalug.apps.blog.feeds import RssPostFeed, AtomPostFeed
 
 from gtalug.apps.meetings.sitemaps import MeetingSitemap
+from gtalug.apps.events.sitemaps import EventSitemap
 from gtalug.apps.blog.sitemaps import PostSitemap
 
 admin.autodiscover()
@@ -17,16 +19,19 @@ handler404 = 'perfect404.views.page_not_found'
 rss_feeds = {
 	'meetings': RssMeetingFeed,
 	'blog': RssPostFeed,
+	'events': RssEventFeed,
 }
 
 atom_feeds = {
 	'meetings': AtomMeetingFeed,
 	'blog': AtomPostFeed,
+	'events': AtomEventFeed,
 }
 
 sitemaps = {
 	'meetings': MeetingSitemap,
 	'posts': PostSitemap,
+	'events': EventSitemap,
 }
 
 urlpatterns = patterns('',
@@ -41,6 +46,7 @@ urlpatterns = patterns('',
 	url(r'^planet/', include('gtalug.apps.planet.urls')),
 	url(r'^events/', include('gtalug.apps.events.urls')),
 	
+	url(r'^api/', include('gtalug.apps.api.urls')),
 	url(r'^search/', include('gtalug.apps.search.urls')),
 	
 	# ShortURLs

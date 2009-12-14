@@ -32,6 +32,7 @@ class Event(models.Model):
 	def get_absolute_url(self):
 		return ('events_detail', None, {
 			'slug': self.slug,
+			'pk': self.pk,
 			'year': self.date.year,
 			'month': self.date.strftime('%m')
 		})
