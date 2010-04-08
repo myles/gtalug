@@ -13,6 +13,11 @@ meeting_list_resource = Resource(handler=MeetingListHandler)
 meeting_detail_resource = Resource(handler=MeetingDetailHandler)
 meeting_next_resource = Resource(handler=MeetingNextHandler)
 
+from gtalug.apps.events.handlers import EventListHandler, EventDetailHandler
+
+event_list_resource = Resource(handler=EventListHandler)
+event_detail_resource = Resource(handler=EventDetailHandler)
+
 urlpatterns = patterns('',
 	url(r'^blog\.(?P<emitter_format>.+)$', blog_post_list_resource),
 	url(r'^blog/(?P<pk>\d+)-(?P<slug>[-\w]+)\.(?P<emitter_format>.+)$', blog_post_detail_resource),
@@ -22,4 +27,8 @@ urlpatterns = patterns('',
 	url(r'^meetings/(?P<year>\d{4})-(?P<month>\d{2})\.(?P<emitter_format>.+)$', meeting_next_resource),
 	url(r'^meetings/(?P<year>\d{4})-(?P<month>\d{2})-(?P<slug>[-\w]+)\.(?P<emitter_format>.+)$', meeting_next_resource),
 	url(r'^meetings/next\.(?P<emitter_format>.+)$', meeting_next_resource)
+	
+	url(r'^events\.(?P<emitter_format>.+)$', event_list_resource),
+	url(r'^events/(?P<year>\d{4})-(?P<month>\d{2})\.(?P<emitter_format>.+)$', event_list_resource),
+	url(r'^events/(?P<year>\d{4})-(?P<month>\d{2})/(?P<pk>\d+)\.(?P<emitter_format>.+)$', event_detail_resource),
 )
