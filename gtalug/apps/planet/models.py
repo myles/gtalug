@@ -64,6 +64,6 @@ class Post(models.Model):
 	@models.permalink
 	def get_absolute_url(self):
 		return ('planet_post_detail', None, {
-			'feed': self.feed.slug,
+			'slug': self.feed.slug,
 			'pk': self.pk
 		})

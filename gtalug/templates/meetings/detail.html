@@ -6,13 +6,14 @@
 {% block extra_head %}
 	<link rel="canonical" href="{{ meeting.get_absolute_url }}">
 	<link rev="shorturl" href="{% shorturl meeting %}">
+	{% if meeting.tba %}<meta name="robots" content="noindex, follow">{% endif %}
 {% endblock %}
 
 {% block content_title %}
 	<p id="breadcrumbs">
 		<a href="/">Home</a> &#x2192;
 		<a href="{% url meetings_index %}">Meetings</a> &#x2192;
-		{{ meeting.topic }}
+		<span>{{ meeting.topic }}</span>
 	</p>
 {% endblock %}
 
@@ -28,6 +29,10 @@
 			{% if meeting.body %}
 				<div class="event-summary">
 					{{ meeting.body|safe }}
+				</div>
+			{% else %}
+				<div class="event-summary">
+					{{ meeting.tease|safe }}
 				</div>
 			{% endif %}
 		</div>

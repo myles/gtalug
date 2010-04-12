@@ -43,7 +43,7 @@ urlpatterns = patterns('',
 	
 	url(r'^meetings/', include('gtalug.apps.meetings.urls')),
 	url(r'^blog/', include('gtalug.apps.blog.urls')),
-	url(r'^planet/', include('gtalug.apps.planet.urls')),
+	url(r'^community/planet/', include('gtalug.apps.planet.urls')),
 	url(r'^events/', include('gtalug.apps.events.urls')),
 	
 	url(r'^api/', include('gtalug.apps.api.urls')),

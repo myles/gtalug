@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>gtalug/settings.py</string>
+	<string>gtalug/templates/search/search.html</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -79,14 +79,28 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>gtalug/settings.py</key>
+		<key>gtalug/apps/meetings/search_indexes.py</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>10</integer>
+				<integer>36</integer>
 				<key>line</key>
-				<integer>118</integer>
+				<integer>14</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>gtalug/templates/search/search.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>76</integer>
+				<key>line</key>
+				<integer>15</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -96,13 +110,12 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>gtalug/apps/meetings/managers.py</string>
-		<string>gtalug/apps/meetings/handlers.py</string>
-		<string>gtalug/settings.py</string>
+		<string>gtalug/apps/meetings/search_indexes.py</string>
+		<string>gtalug/templates/search/search.html</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{575, 76}, {736, 802}}</string>
+	<string>{{660, 256}, {736, 802}}</string>
 </dict>
 </plist>

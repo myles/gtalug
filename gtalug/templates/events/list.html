@@ -1,13 +1,13 @@
 {% extends "events/base_events.html" %}
 
-{% block title %}Events for {{ month }}-{{ year }}{% endblock %}
+{% block title %}Events for {{ date|date:"F Y"}}{% endblock %}
 
 {% block extra_body %}
 	<script type="text/javascript" charset="utf-8" src="{{ MEDIA_URL }}js/hcalendar.js"></script>
 	<script type="text/javascript" charset="utf-8" src="{{ MEDIA_URL }}js/jquery.js"></script>
 	<script type="text/javascript" charset="utf-8">
-		jQuery(document).ready(function() {
-			jQuery(".hcalendar").hide();
+		$(document).ready(function() {
+			$("ul.hcalendar").hide();
 		});
 	</script>
 {% endblock %}
@@ -16,6 +16,8 @@
 	<h2>Events for {{ date|date:"F Y" }}</h2>
 	
 	<p class="navigation"><a href="{% url events_list previous_month|date:"Y" previous_month|date:"m" %}">&#x2190; {{ previous_month|date:"F Y" }}</a> - <a href="{% url events_list next_month|date:"Y" next_month|date:"m" %}">{{ next_month|date:"F Y" }} &#x2192;</a></p>
+	
+	<div id="jhCalendar"></div>
 	
 	<ul class="vcalendar">
 	{% if meeting %}
@@ -31,6 +33,4 @@
 		</li>
 	{% endfor %}
 	</ul>
-	
-	<div id="jhCalendar"></div>
 {% endblock %}

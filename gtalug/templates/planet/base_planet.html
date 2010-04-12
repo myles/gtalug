@@ -3,6 +3,10 @@
 
 {% block body_id %}planet{% endblock %}
 
+{% block extra_head %}
+	<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block sidebar %}
 	<h3>Feeds</h3>
 	{% get_planet_feeds feeds %}

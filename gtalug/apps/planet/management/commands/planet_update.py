@@ -29,8 +29,11 @@ class Command(BaseCommand):
 					post.link = entry.link
 					post.content = entry.description
 					post.guid = entry.guid
-					post.author = entry.author_detail.name
-					post.author_email = entry.author_detail.email
+					
+					if entry.get('author_detail', None):
+						post.author = entry.author_detail.name
+						post.author_email = entry.author_detail.email
+					
 					post.date_modified = date_parse(entry.updated)
 					
 					post.save()

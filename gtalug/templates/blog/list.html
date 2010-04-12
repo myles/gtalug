@@ -5,7 +5,7 @@
 {% block content_title %}
 	<p id="breadcrumbs">
 		<a href="/">Home</a> &#x2192;
-		Blog
+		<span>Blog</span>
 	</p>
 	
 	<h2>Blog</h2>
@@ -38,7 +38,7 @@
 	<p class="pagnation">
 		{% if posts.has_previous %}
 			<a href="{% url blog_index %}?page={{ posts.previous_page_number }}">
-				&#x2190; Prev.</a>
+				&#x2190; Previous</a>
 		{% endif %}
 		<span>page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
 		{% if posts.has_next %}

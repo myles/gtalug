@@ -40,7 +40,7 @@ def feed_detail(request, slug):
 	return render_to_response('planet/feed_detail.html', context,
 		context_instance=RequestContext(request))
 
-def post_detail(request, feed, pk):
+def post_detail(request, slug, pk):
 	try:
 		feed = Feed.objects.get(slug__iexact=slug)
 	except Feed.DoesNotExist:

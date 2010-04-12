@@ -13,7 +13,7 @@
 		<a href="/">Home</a> &#x2192;
 		<a href="{% url events_index %}">Events</a> &#x2192;
 		<a href="{% url events_list event.date|date:"Y" event.date|date:"m" %}">{{ event.date|date:"F Y" }}</a> &#x2192;
-		{{ event.title }}
+		<span>{{ event.title }}</span>
 	</p>
 {% endblock %}
 
@@ -29,6 +29,10 @@
 			{% if meeting.body %}
 				<div class="event-summary">
 					{{ event.body|safe }}
+				</div>
+			{% else %}
+				<div class="event-summary">
+					{{ event.tease|safe }}
 				</div>
 			{% endif %}
 		</div>

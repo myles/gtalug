@@ -1,30 +1,26 @@
 {% extends "planet/base_planet.html" %}
 
-{% block title %}Planet{% endblock %}
+{% block title %}{{ feed.name }}{% endblock %}
 
 {% block content_title %}
 	<p id="breadcrumbs">
 		<a href="/">Home</a> &#x2192;
 		<a href="/community/">Community</a> &#x2192;
-		<span>Planet</span>
+		<a href="{% url planet_index %}">Planet</a> &#x2192;
+		<span>{{ feed.name }}</span>
 	</p>
 	
-	<h2>Planet</h2>
-{% endblock %}
-
-{% block extra_head %}
-	<link rel="home" title="Planet home" href="{% url planet_index %}">
-	{% if posts.has_previous %}
-		<link rel="prev" title="Previous page ({{ posts.previous_page_number }})" href="{% url planet_index %}?page={{ posts.previous_page_number }}">
-	{% endif %}
-	{% if posts.has_next %}
-	<link rel="next" title="Next page ({{ posts.previous_page_number }})" href="{% url planet_index %}?page={{ posts.previous_page_number }}">
+	<h2><a href="{{ feed.link }}">{{ feed.name }}</a></h2>
+	{% if feed.tagline %}
+		<p>{{ feed.tagline }}</p>
 	{% endif %}
 {% endblock %}
 
 {% block content %}
+	
+	
 	<div class="hfeed">
-		{% for post in posts.object_list %}
+		{% for post in feed.post_set.all %}
 		<div class="hentry">
 			<h3><a href="{{ post.link }}">{{ post }}</a>&nbsp;<a href="{{ post.get_absolute_url }}">#</a></h3>
 			<p class="meta">
