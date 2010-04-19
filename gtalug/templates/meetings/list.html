@@ -14,7 +14,7 @@
 			{% for meeting in meetings %}
 				<div class="vevent month-{{ meeting.date|date:"m" }}">
 					<h3><a href="{{ meeting.get_absolute_url }}" class="dtstart" title="{{ meeting.date|date:"Y-m-d" }}T19:30:00-05:00">{{ meeting.date|date:"F" }}</a></h3>
-					<p><a href="{{ meeting.get_absolute_url }}" class="summary">{{ meeting.topic }}</a><br>{{ meeting.presenter }}</p>
+					<p>{{ meeting.presenter }} on <a href="{{ meeting.get_absolute_url }}" class="summary">{{ meeting.topic }}</a></p>
 				</div>
 			{% endfor %}
 		</div>

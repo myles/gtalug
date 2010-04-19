@@ -21,7 +21,7 @@
 	<div class="vcalendar">
 		<div class="vevent">
 			<div class="dtstart" title="{{ event.date|date:"Y-m-d" }}T{{ event.time }}-05:00">
-				{{ event.date|date:"jS F, Y" }}{% if event.time %} at {{ event.time|time:"f a" }}{% endif %}
+				{{ event.date|date }}{% if event.time %} at {{ event.time|time }}{% endif %}
 			</div>
 			<h3 class="summary">
 				{{ event.title }}

@@ -6,7 +6,7 @@
 	{% for object in object_list %}
 		<li>
 			<a href="{{ object.get_absolute_url }}">{{ object.title }}</a> -
-			{{ object.date|date:"jS F, Y" }}
+			{{ object.date|date }}
 			{% if object.time %}at {{ object.time }}{% endif %}
 		</li>
 	{% endfor %}

@@ -33,7 +33,7 @@
 				{% else %}
 					<span class="fn">{{ post.feed.name }}</span> on
 				{% endif %}
-				<span class="published" title="{{ post.date_modified|date:"Y-m-d" }}">{{ post.date_modified|date:"jS F, Y" }}</span>
+				<span class="published" title="{{ post.date_modified|date:"Y-m-d" }}">{{ post.date_modified|date }}</span>
 			</p>
 			{{ post.content|removetags:"img javascript object"|safe|truncatewords_html:50 }}
 		</div>

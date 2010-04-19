@@ -1,5 +1,5 @@
 {% load meetings_tags %}
 {% get_upcoming_meetings 1 as meeting %}
-<h3><a href="{{ meeting.get_absolute_url }}">{{ meeting.topic }}</a></h3>
-<p>{{ meeting.date|date:"jS F, Y" }} at {{ meeting.time|time:"f a" }}</p>
+<h3><a href="{{ meeting.get_absolute_url }}">{{ meeting.topic }}</a> with {{ meeting.presenter }}</h3>
+<p>{{ meeting.date|date }} at {{ meeting.time|time }}</p>
 {{ meeting.tease|safe }}

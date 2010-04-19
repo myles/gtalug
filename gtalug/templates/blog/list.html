@@ -28,7 +28,7 @@
 			<h3><a href="{{ post.get_absolute_url }}">{{ post }}</a></h3>
 			<p class="meta">
 				<span class="fn">{{ post.author.get_full_name }}</span> on
-				<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date:"jS F, Y" }}</span>
+				<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date }}</span>
 			</p>
 			{{ post.tease|safe }}
 		</div>

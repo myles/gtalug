@@ -12,6 +12,12 @@ ul.tabs:after { content: "."; display: block; height: 0; clear: both; visibility
 * html ul.tabs { height: 1%; }
 ul.tabs, ul.tabs li ul { display: block; }
 
+/* Breadcrumbs */
+p#breadcrumbs { margin: 0 0 .5em 0; color: #333; border: 1px dashed #ccc; padding: .4em; }
+p#breadcrumbs a, div#body p#breadcrumbs span { color: #191919; text-decoration: none; margin: .5em; }
+p#breadcrumbs span { color: #333; }
+p#breadcrumbs a:hover { color: #000; }
+
 /* Header */
 div#header {  }
 div#header img { float: left; margin-right: 1em; }
@@ -31,10 +37,6 @@ div#page p.meta { margin: 0 0 .5em 0; }
 
 /* Body */
 div#body {  }
-div#body p#breadcrumbs { margin: 0 0 .5em 0; color: #333; border: 1px dashed #ccc; padding: .5em; }
-div#body p#breadcrumbs a, div#body p#breadcrumbs span { color: #191919; text-decoration: none; margin: .5em; }
-div#body p#breadcrumbs span { color: #333; }
-div#body p#breadcrumbs a:hover { color: #000; }
 
 /* Footer */
 div#footer { font-size: .9em; color: #4c4c4c; border-top: 1px solid #e6e6e6; margin-top: .5em; padding-top: .5em; }
@@ -45,7 +47,7 @@ div#footer .tabs li { margin-right: 2em; }
 div#footer p { margin-bottom: .5em; }
 
 /* Index Page */
-div.large_block { padding: .5em; margin: .5em; }
+div.large_block { padding: 0 .5em; margin: 0 .5em; }
 div.large_block h2 { margin: 0; }
 div.large_block h3 { margin: 0; }
 div.large_block p { margin: 0; }

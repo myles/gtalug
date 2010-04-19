@@ -126,3 +126,7 @@ INSTALLED_APPS = (
 	'gtalug.apps.utils',
 	'gtalug.apps.api',
 )
+
+DATE_FORMAT = 'jS F, Y'
+TIME_FORMAT = 'f a'
+DATETIME_FORMAT = DATE_FORMAT + " " + TIME_FORMAT

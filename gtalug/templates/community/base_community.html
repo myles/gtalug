@@ -13,11 +13,11 @@
 		<li>
 			<a href="/community/">Community</a>
 			<ul>
-				<li><a href="{# TODO url mailing_index #}">Mailing List</a></li>
-				<li><a href="{% url planet_index %}">Planet</a></li>
-				<li><a href="{# TODO url chat_index #}">IRC</a></li>
-				<li><a href="/community/lug/">Surrounding Area LUGs</a></li>
-				<li><a href="/community/usergroups/">Other User Groups</a></li>
+				<li><a href="/community/lists/">Mailing List</a>{% block more_sidebar_lists %}{% endblock %}</li>
+				<li><a href="{% url planet_index %}">Planet</a>{% block more_sidebar_planet %}{% endblock %}</li>
+				<li><a href="/community/irc/">IRC</a>{% block more_sidebar_irc %}{% endblock %}</li>
+				<li><a href="/community/lug/">Surrounding Area LUGs</a>{% block more_sidebar_lug %}{% endblock %}</li>
+				<li><a href="/community/ug/">Other User Groups</a>{% block more_sidebar_ug %}{% endblock %}</li>
 			</ul>
 		</li>
 	</ul>

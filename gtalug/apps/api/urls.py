@@ -26,7 +26,7 @@ urlpatterns = patterns('',
 	url(r'^meetings/(?P<year>\d{4})\.(?P<emitter_format>.+)$', meeting_list_resource),
 	url(r'^meetings/(?P<year>\d{4})-(?P<month>\d{2})\.(?P<emitter_format>.+)$', meeting_next_resource),
 	url(r'^meetings/(?P<year>\d{4})-(?P<month>\d{2})-(?P<slug>[-\w]+)\.(?P<emitter_format>.+)$', meeting_next_resource),
-	url(r'^meetings/next\.(?P<emitter_format>.+)$', meeting_next_resource)
+	url(r'^meetings/next\.(?P<emitter_format>.+)$', meeting_next_resource),
 	
 	url(r'^events\.(?P<emitter_format>.+)$', event_list_resource),
 	url(r'^events/(?P<year>\d{4})-(?P<month>\d{2})\.(?P<emitter_format>.+)$', event_list_resource),
