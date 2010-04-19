@@ -1,3 +1,27 @@
 {% extends "base.html" %}
+{% load meetings_tags %}
 
 {% block body_id %}meetings{% endblock %}
+
+{% block sidebar %}
+	<div class="block hfeed" id="block_upcoming meetings">
+		{% get_upcoming_meetings 8 as meetings %}
+		{% for meeting in meetings %}
+		<div class="hentry">
+			<h3><a href="{{ meeting.get_absolute_url }}" class="entry-title" rel="bookmark">{{ meeting.topic }}</a></h3>
+			<p class="meta hcard">
+				<strong class="fn">
+				{% if meeting.presenter_user %}
+				<a href="{{ meeting.presenter_user.get_profile.get_absolute_url }}">
+					{{ meeting.presenter_user.get_full_name }}
+				</a>
+				{% else %}
+				{{ meeting.presenter }}
+				{% endif %}
+				</strong> on
+				<span class="published" title="{{ meeting.date|date:"Y-m-d" }}">{{ meeting.date|date:"jS F" }}</span>
+			</p>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

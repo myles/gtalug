@@ -1,0 +1,67 @@
+{% extends "profiles/base_profiles.html" %}
+{% load shorturl markup %}
+
+{% block title %}{{ profile }}{% endblock %}
+
+{% block extra_head %}
+	<link rel="canonical" href="{{ profile.get_absolute_url }}">
+	<link rev="shorturl" href="{% shorturl profile %}">
+{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="/people/">People</a> &#x2192;
+		<span>{{ profile }}</span>
+	</p>
+	
+	<h2>{{ profile }}</h2>
+{% endblock %}
+
+{% block content %}
+	{% if profile.photo %}
+	<img src="{{ MEDIA_URL }}{{ profile.photo }}" title="{{ profile }}" height="75" style="float:right">
+	{% endif %}
+	
+	{{ profile.bio|markdown }}
+	
+	{% if user.meeting_set.all %}
+	<h3>Talks</h3>
+	<ul>
+	{% for meeting in user.meeting_set.all %}
+		<li><a href="{{ meeting.get_absolute_url }}">{{ meeting.topic }}</a> - {{ meeting.date|date }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+	<div class="block" id="block_social_networks">
+		{% if user.social_network_profiles.all %}
+		<h3>Social Networks</h3>
+		<ul>
+		{% for sn in user.social_network_profiles.all %}
+			<li><a href="{{ sn.url }}" rel="me">{{ sn.name }}</a></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		
+		{% if user.instant_messenger_profiles.all %}
+		<h3>Instant Messengers</h3>
+		<ul>
+		{% for im in user.instant_messenger_profiles.all %}
+			<li>{{ im.name }}: <a href="{{ im.url }}">{{ im.username }}</a></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		
+		{% if user.website_profiles.all %}
+		<h3>Websites</h3>
+		<ul>
+		{% for ws in user.website_profiles.all %}
+			<li><a href="{{ ws.url }}" rel="me">{{ ws.name }}</a></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+{% endblock %}

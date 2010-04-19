@@ -1,6 +1,7 @@
 docutils
 vobject
 whoosh
+Markdown
 
 http://www.djangoproject.com/download/1.1.1/tarball/
 

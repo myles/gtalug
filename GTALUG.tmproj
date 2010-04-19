@@ -40,9 +40,11 @@
 		</dict>
 		<dict>
 			<key>filename</key>
-			<string>requirments.txt</string>
+			<string>requirements.txt</string>
 			<key>lastUsed</key>
 			<date>2009-12-01T19:36:05Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -81,6 +83,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{660, 256}, {736, 802}}</string>
+	<string>{{660, 76}, {736, 802}}</string>
 </dict>
 </plist>

@@ -50,6 +50,11 @@ urlpatterns = patterns('',
 	url(r'^events/', 'django.views.generic.simple.redirect_to',
 		{ 'url': '/event/', 'permanent': True }),
 	
+	url(r'^~(?P<username>[-\w]+)/$',
+		view = 'gtalug.apps.profiles.views.detail',
+		name = 'profiles_detail',
+	),
+	
 	url(r'^api/', include('gtalug.apps.api.urls')),
 	url(r'^search/', include('gtalug.apps.search.urls')),
 	
