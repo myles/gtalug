@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load meetings_tags %}
 
 {% block title %}Greater Toronto Area Linux User Group{% endblock %}
 
@@ -7,6 +8,12 @@
 		<h2>Upcoming Meetings</h2>
 		<p>GTALUG meets on the second Tuesday of every month at 7:30 p.m.</p>
 		{% include "home/block_meetings.html" %}
+		{% get_upcoming_meetings 3 as meetings %}
+		<p>
+		{% for meeting in meetings %}
+			{% if forloop.last %}and{% endif %} <a href="{{ meeting.get_absolute_url }}">{{ meeting.date|date }}</a>{% if not forloop.last %},{% endif %}
+		{% endfor %}
+		</p>
 	</div>
 	
 	<div id="small_blocks">

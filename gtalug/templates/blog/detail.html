@@ -21,13 +21,13 @@
 	<p id="breadcrumbs">
 		<a href="/">Home</a> &#x2192;
 		<a href="{% url blog_index %}">Blog</a> &#x2192;
-		{{ post.title }}
+		<span>{{ post.title }}</span>
 	</p>
 	
 	<h2 class="entry-title">{{ post.title }}</h2>
 	<p class="meta vcard">
 		<span class="fn">{{ post.author.get_full_name }}</span> on
-		<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date:"jS F, Y" }}</span>
+		<span class="published" title="{{ post.published|date:"Y-m-d" }}">{{ post.published|date }}</span>
 	</p>
 {% endblock %}
 

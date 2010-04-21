@@ -3,12 +3,11 @@
 
 {% block body_id %}planet{% endblock %}
 
-{% block sidebar %}
-	<h3>Feeds</h3>
-	{% get_planet_feeds feeds %}
-	<ul>
-	{% for feed in feeds %}
-		<li><a href="{{ feed.link }}">{{ feed.name }}</a> <a href="{{ feed.get_absolute_url }}">#</a></li>
-	{% endfor %}
-	</ul>
+{% block extra_head %}
+	<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
+{% block page %}
+{% block content_title %}{% endblock %}
+{% block content %}{% endblock %}
 {% endblock %}

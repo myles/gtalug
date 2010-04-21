@@ -90,6 +90,7 @@ SHORTEN_MODELS = {
 	'B': 'blog.post',
 	'M': 'meetings.meeting',
 	'E': 'events.event',
+	'U': 'profiles.profile',
 }
 
 SHORT_BASE_URL = SHORTEN_FULL_BASE_URL = 'http://gtalug.org/'
@@ -110,6 +111,7 @@ INSTALLED_APPS = (
 	'django.contrib.flatpages',
 	'django.contrib.sitemaps',
 	'django.contrib.comments',
+	'django.contrib.markup',
 	
 	'shorturls',
 	'django_extensions',
@@ -117,6 +119,7 @@ INSTALLED_APPS = (
 	'south',
 	'perfect404',
 	'piston',
+	'elsewhere',
 		
 	'gtalug.apps.meetings',
 	'gtalug.apps.blog',
@@ -125,4 +128,36 @@ INSTALLED_APPS = (
 	'gtalug.apps.search',
 	'gtalug.apps.utils',
 	'gtalug.apps.api',
+	'gtalug.apps.profiles',
 )
+
+DATE_FORMAT = 'jS F, Y'
+TIME_FORMAT = 'f a'
+DATETIME_FORMAT = DATE_FORMAT + " " + TIME_FORMAT
+
+AUTH_PROFILE_MODULE = 'profiles.Profile'
+
+SOCIAL_NETWORKS = [
+	{
+		'id': 'facebook',
+		'name': 'Facebook',
+		'url': 'http://www.facebook.com/profile.php?id=%s',
+		'identifier': 'User ID',
+		'icon': 'facebook.png',
+	}
+]
+
+INSTANT_MESSENGERS = [
+	{
+		'id': 'aim',
+		'name': 'AIM',
+		'url': 'aim:goim?screenname=%s',
+		'icon': 'aim.png',
+	},
+	{
+		'id': 'yahoo',
+		'name': 'Y!',
+		'url': 'ymsgr:sendim?%s',
+		'icon': 'yahoo.png',
+	},
+]

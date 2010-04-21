@@ -4,6 +4,6 @@
 {% get_blog_posts_published 4 as blog_posts %}
 <ul>
 	{% for post in blog_posts %}
-		<li id="blog_post_{{ post.pk }}"><a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a> - {{ post.published|date:"jS F, Y" }}</li>
+		<li id="blog_post_{{ post.pk }}"><a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a> - {{ post.published|date }}</li>
 	{% endfor %}
 </ul>

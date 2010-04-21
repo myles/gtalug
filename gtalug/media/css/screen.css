@@ -12,6 +12,12 @@ ul.tabs:after { content: "."; display: block; height: 0; clear: both; visibility
 * html ul.tabs { height: 1%; }
 ul.tabs, ul.tabs li ul { display: block; }
 
+/* Breadcrumbs */
+p#breadcrumbs { margin: 0 0 .5em 0; color: #333; border: 1px dashed #ccc; padding: .4em; }
+p#breadcrumbs a, div#body p#breadcrumbs span { color: #191919; text-decoration: none; margin: .5em; }
+p#breadcrumbs span { color: #333; }
+p#breadcrumbs a:hover { color: #000; }
+
 /* Header */
 div#header {  }
 div#header img { float: left; margin-right: 1em; }
@@ -26,12 +32,11 @@ div#header .tabs a:hover { /* TODO */ }
 
 /* Page */
 div#page { padding-top: 1em; }
+div#page h3 { margin: .5em 0 0 0; }
+div#page p.meta { margin: 0 0 .5em 0; }
 
 /* Body */
 div#body {  }
-div#body p#breadcrumbs { margin: 0 0 .5em 0; color: #333; border: 1px dashed #ccc; padding: .5em; }
-div#body p#breadcrumbs a { color: #191919; text-decoration: none; margin: .5em; }
-div#body p#breadcrumbs a:hover { color: #000; }
 
 /* Footer */
 div#footer { font-size: .9em; color: #4c4c4c; border-top: 1px solid #e6e6e6; margin-top: .5em; padding-top: .5em; }
@@ -42,7 +47,7 @@ div#footer .tabs li { margin-right: 2em; }
 div#footer p { margin-bottom: .5em; }
 
 /* Index Page */
-div.large_block { padding: .5em; margin: .5em; }
+div.large_block { padding: 0 .5em; margin: 0 .5em; }
 div.large_block h2 { margin: 0; }
 div.large_block h3 { margin: 0; }
 div.large_block p { margin: 0; }
@@ -57,10 +62,10 @@ div#block_recent_posts div.hentry { border-bottom: 1px solid #b3b3b3; padding-bo
 div#block_recent_posts div.hentry p { margin: 0; }
 
 /* Meeting Index Page */
-div#meeting_list div { width: 160px; display: inline-block; float: left; margin-right: 10px; margin-bottom: 1em; }
+div#meeting_list div { width: 160px; display: inline-block; float: left; margin-right: 10px; margin-bottom: 1em; border: 1px solid #ccc; }
 div#meeting_list h3 { margin: 0; background-color: #000; padding: .2em; }
 div#meeting_list h3 a { color: #FFF; text-decoration: none; }
-div#meeting_list div p { margin: 0; }
+div#meeting_list div p { margin: 0; height: 60px; overflow: hidden; }
 div#meeting_list div p a { text-decoration: none; font-weight: bold; color: #000; }
 
 /* Search Page */

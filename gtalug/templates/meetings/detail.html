@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "meetings/base_meetings.html" %}
 {% load shorturl gtalug_tags %}
 
 {% block title %}{{ meeting.topic }}{% endblock %}
@@ -6,13 +6,14 @@
 {% block extra_head %}
 	<link rel="canonical" href="{{ meeting.get_absolute_url }}">
 	<link rev="shorturl" href="{% shorturl meeting %}">
+	{% if meeting.tba %}<meta name="robots" content="noindex, follow">{% endif %}
 {% endblock %}
 
 {% block content_title %}
 	<p id="breadcrumbs">
 		<a href="/">Home</a> &#x2192;
 		<a href="{% url meetings_index %}">Meetings</a> &#x2192;
-		{{ meeting.topic }}
+		<span>{{ meeting.topic }}</span>
 	</p>
 {% endblock %}
 
@@ -20,7 +21,7 @@
 	<div class="vcalendar">
 		<div class="vevent">
 			<div class="dtstart" title="{{ meeting.date|date:"Y-m-d" }}T19:30:00-05:00">
-				{{ meeting.date|date:"jS F, Y" }} at {{ meeting.time|time:"f a" }}
+				{{ meeting.date|date }} at {{ meeting.time|time }}
 			</div>
 			<h3 class="summary">
 				{{ meeting.topic }}
@@ -28,6 +29,10 @@
 			{% if meeting.body %}
 				<div class="event-summary">
 					{{ meeting.body|safe }}
+				</div>
+			{% else %}
+				<div class="event-summary">
+					{{ meeting.tease|safe }}
 				</div>
 			{% endif %}
 		</div>

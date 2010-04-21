@@ -7,6 +7,6 @@ urlpatterns = patterns('gtalug.apps.planet.views',
 	url(r'^(?P<slug>[-\w]+)/$',
 		view='feed_detail', name='planet_feed_detail'),
 	
-	url(r'^(?P<feed>[-\w]+)/(?P<pk>\d+)/$',
+	url(r'^(?P<slug>[-\w]+)/(?P<pk>\d+)/$',
 		view='post_detail', name='planet_post_detail'),
 )

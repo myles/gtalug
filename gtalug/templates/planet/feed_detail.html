@@ -1,0 +1,50 @@
+{% extends "planet/base_planet.html" %}
+
+{% block title %}{{ feed.name }}{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="/community/">Community</a> &#x2192;
+		<a href="{% url planet_index %}">Planet</a> &#x2192;
+		<span>{{ feed.name }}</span>
+	</p>
+	
+	<h2><a href="{{ feed.link }}">{{ feed.name }}</a></h2>
+	{% if feed.tagline %}
+		<p>{{ feed.tagline }}</p>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	
+	
+	<div class="hfeed">
+		{% for post in feed.post_set.all %}
+		<div class="hentry">
+			<h3><a href="{{ post.link }}">{{ post }}</a>&nbsp;<a href="{{ post.get_absolute_url }}">#</a></h3>
+			<p class="meta">
+				{% if post.author %}
+					<span class="fn">{{ post.author }}</span> on
+				{% else %}
+					<span class="fn">{{ post.feed.name }}</span> on
+				{% endif %}
+				<span class="published" title="{{ post.date_modified|date:"Y-m-d" }}">{{ post.date_modified|date }}</span>
+			</p>
+			{{ post.content|removetags:"img javascript object"|safe|truncatewords_html:50 }}
+		</div>
+		{% endfor %}
+	</div>
+	
+	<p class="pagnation">
+		{% if posts.has_previous %}
+			<a href="{% url planet_index %}?page={{ posts.previous_page_number }}">
+				&#x2190; Previous</a>
+		{% endif %}
+		<span>page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+		{% if posts.has_next %}
+			<a href="{% url planet_index %}?page={{ posts.next_page_number }}">
+				Next &#x2192;</a>
+		{% endif %}
+	</p>
+{% endblock %}

@@ -13,7 +13,8 @@
 	
 	{% if page.object_list %}
 		{% for result in page.object_list %}
-			<p><strong><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a></strong> {% if page.user %}{{ page.user.get_full_name }}{% endif %} {% if page.date %}{{ page.date|date:"jS F, Y" }}{% endif %}</p>
+			<h3><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a> {% if result.user %}{{ result.user.get_full_name }}{% endif %} {% if result.date %}{{ result.date|date:"jS F, Y" }}{% endif %}</h3>
+			{{ result.content|striptags|linebreaks }}
 		{% empty %}
 			<p>No results found.</p>
 		{% endfor %}

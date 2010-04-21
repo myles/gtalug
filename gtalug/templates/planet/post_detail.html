@@ -1,0 +1,30 @@
+{% extends "planet/base_planet.html" %}
+
+{% block title %}{{ feed.name }}{% endblock %}
+
+{% block content_title %}
+	<p id="breadcrumbs">
+		<a href="/">Home</a> &#x2192;
+		<a href="/community/">Community</a> &#x2192;
+		<a href="{% url planet_index %}">Planet</a> &#x2192;
+		<a href="{{ feed.get_absolute_url }}">{{ feed.name }}</a> &#x2192;
+		<span>{{ post.title }}</span>
+	</p>
+{% endblock %}
+
+{% block content %}
+	<div class="hfeed">
+		<div class="hentry">
+			<h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
+			<p class="meta">
+				{% if post.author %}
+					<span class="fn">{{ post.author }}</span> on
+				{% else %}
+					<span class="fn">{{ post.feed.name }}</span> on
+				{% endif %}
+				<span class="published" title="{{ post.date_modified|date:"Y-m-d" }}">{{ post.date_modified|date }}</span>
+			</p>
+			{{ post.content|removetags:"img javascript object"|safe|truncatewords_html:50 }}
+		</div>
+	</div>
+{% endblock %}
