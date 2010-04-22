@@ -49,6 +49,38 @@ def detail(request, year, month, slug=None):
 	return render_to_response('meetings/detail.html', context,
 		context_instance=RequestContext(request))
 
+def detail_ical(request, year, month, slug=None):
+	try:
+		meeting = Meeting.objects.get(slug__iexact=slug, date__year=year, date__month=month)
+	except Meeting.DoesNotExist:
+		raise Http404
+	
+	cal = vobject.iCalendar()
+	
+	cal.add('method').vaule = u'PUBLISHED'
+	
+	vevent = cal.add('vevent')
+	
+	if meeting.tba:
+		vevent.add('summary').value = u"GTALUG Meeting"
+	else:
+		vevent.add('summary').value = u"GTALUG Meeting - %s" % meeting.topic
+		vevent.add('description').value = u"%s" % striptags(meeting.tease).strip()
+	
+	vevent.add('location').value = u"%s" % striptags(meeting.location).strip()
+	vevent.add('dtstart').value = datetime.datetime.combine(meeting.date, meeting.time)
+	vevent.add('url').value = u'http://gtalug.org%s' % meeting.get_absolute_url()
+	
+	icalstream = cal.serialize()
+	
+	filename = 'gtalug_%s.ics' % meeting.slug
+	
+	response = HttpResponse(icalstream, mimetype='text/calendar')
+	response['Filename'] = filename  # Fucking IE needs this
+	response['Content-Disposition'] = 'attachment; filename=%s' % filename
+	
+	return response
+
 def ical(request):
 	"""Meetings iCal (ics) feed.
 	"""

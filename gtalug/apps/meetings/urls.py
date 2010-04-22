@@ -10,6 +10,8 @@ urlpatterns = patterns('gtalug.apps.meetings.views',
 		view='detail', name='meetings_detail_without_slug'),
 	url(r'^(?P<year>\d{4})-(?P<month>\d{2})/(?P<slug>[-\w]+)/$',
 		view='detail', name='meetings_detail'),
+	url(r'^(?P<year>\d{4})-(?P<month>\d{2})/(?P<slug>[-\w]+).ics$',
+		view='detail_ical', name='meetings_detail_ical'),
 	
 	url(r'^next/$',
 		view='next', name='next_meeting'
