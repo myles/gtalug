@@ -13,5 +13,8 @@ urlpatterns = patterns('gtalug.apps.meetings.views',
 	
 	url(r'^next/$',
 		view='next', name='next_meeting'
-	)
+	),
+	
+	url(r'^gtalug.ics$',
+		view='ical', name='meetings_ical'),
 )

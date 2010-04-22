@@ -35,6 +35,18 @@
 					{{ meeting.tease|safe }}
 				</div>
 			{% endif %}
+			
+			<h4>Location</h4>
+			<div class="event-location">
+				{{ meeting.location|safe }}
+			</div>
+			
+			<h4>Schedule</h4>
+			<ul>
+				<li><strong>6:00 p.m.</strong> &minus; There is a get together of GTALUGers at <a href="http://pho88.ca/">Pho 88</a> restaurant 270 Spadina Ave (South of Dundas) for food and socializing.</li>
+				<li><strong>{{ meeting.time|time }}</strong> &minus; Meeting and presentation.</li>
+				<li><strong>9:00 p.m.</strong> &minus; After each meeting (at 9:00 pm) a group of GTALUGers move to the GSU Pub for beer and more socializing.</p>
+			</ul>
 		</div>
 	</div>
 {% endblock %}

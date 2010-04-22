@@ -19,6 +19,8 @@ class Meeting(models.Model):
 	tease = models.TextField('tease', max_length=1000, help_text="Raw HTML")
 	body = models.TextField('body', blank=True, null=True, help_text="Raw HTML")
 	
+	location = models.TextField('location', max_length=500, help_text="Raw HTML")
+	
 	presenter = models.CharField('presenter', max_length=200)
 	presenter_user = models.ForeignKey(User, verbose_name='presenters user account', blank=True, null=True)
 	
